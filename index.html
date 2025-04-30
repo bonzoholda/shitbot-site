@@ -16,13 +16,22 @@
 <body class="min-h-screen flex flex-col bg-zinc-950 px-4 text-white">
   <header class="w-full max-w-5xl mx-auto py-12 text-center px-4">
     <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-cyan-400 drop-shadow-lg">DEXtrader, new from Shitbot!</h1>
-    <p class="mt-4 text-base sm:text-lg text-zinc-400">A dynamic grid-trading bot for DEX lovers. Automated. Lightweight. Solid strategy.</p>
+    <p class="mt-4 text-base sm:text-lg text-zinc-400 font-light">A dynamic grid-trading bot for DEX lovers. Automated. Lightweight. Solid strategy.</p>
   </header>
+
+<div class="max-w-5xl mx-auto mt-4 border-b border-cyan-700 flex space-x-6 text-sm sm:text-base">
+  <button onclick="showTab('overview')" class="tab-button active-tab text-cyan-400 border-b-2 border-cyan-400 pb-2">Overview</button>
+  <button onclick="showTab('strategy')" class="tab-button text-zinc-400 hover:text-cyan-300 pb-2">The Strategy</button>
+</div>
+
+
+<!-- OVERVIEW TAB (keep your existing content inside this) -->
+<div id="overview" class="tab-content block">
 
   <main class="w-full max-w-6xl mx-auto flex flex-col-reverse md:flex-row gap-12 items-center justify-between px-4 py-8">
     <div class="flex-1 space-y-6 text-center md:text-left">
       <h2 class="text-2xl sm:text-3xl font-semibold text-cyan-300">Why ShitBot?</h2>
-      <ul class="text-zinc-300 space-y-2 list-disc list-inside text-left mx-auto md:mx-0 max-w-sm">
+      <ul class="text-zinc-300 font-light space-y-2 list-disc list-inside text-left mx-auto md:mx-0 max-w-sm">
         <li>Trade directly inside your wallet and grow your portfolio in an automatic and decentralized way.</li>
         <li>Cloud hosted, running 24/7.</li>
         <li>Real-time portfolio tracking.</li>
@@ -30,7 +39,7 @@
         
       </ul>
       <h2 class="text-2xl sm:text-3xl font-semibold text-cyan-300">How to start?</h2>
-      <ul class="text-zinc-300 space-y-2 list-disc list-inside text-left mx-auto md:mx-0 max-w-sm">
+      <ul class="text-zinc-300 font-light space-y-2 list-disc list-inside text-left mx-auto md:mx-0 max-w-sm">
         <li>Prepare your crypto wallet (currently using Polygon network. You'll need wallet address + its privkey).</li>
         <li>Load initial portfolio, recommended at least 100USDT, plus 10POL for gas fee.</li>
         <li>Preferrably having github account, easier to login into Railway.</li>
@@ -48,9 +57,44 @@
       <img src="asset/shitview.png" alt="ShitBot logo" class="rounded-2xl shadow-xl w-full h-auto">
     </div>
   </main>
+  </div>
+  
+  <!-- STRATEGY TAB -->
+<div id="strategy" class="tab-content hidden">
+  <div class="max-w-4xl mx-auto py-8 px-4">
+    <h2 class="text-3xl font-semibold text-cyan-300 mb-4">The Strategy</h2>
+    <p class="text-zinc-300 font-light leading-relaxed">
+      <li>ShitBot DEXtrader uses a hybrid trailing grid system with dynamic allocation based on portfolio value. It adapts to trends by trailing up in bullish phases and buying dips aggressively when bearish sentiment is detected.</li>
+	  
+	  <li>The core engine of this bot is actually the combination of volume management and DCA backup. The bot calculates portfolio value each time, then uses 16% of the portfolio to manage 3 sets or 3 rounds of trades. Each round of the trade can be combination of BUY-SELL (Long and TP), SELL-BUY (Short and TP), BUY-BUY (Long and SL), SELL-SELL (Short and SL).</li>
+
+		<li>Every time the bot completes 1 round, it will scan the market to find a new signal. Whenever the new signal comes, the bot will start a new round.</li>
+
+		<li>This strategy works for almost every situation in the market. During extreme market pumps, the bot can have 3 rounds of SELL-SELL. And the opposite, during extreme market dumps the bot can do 3 rounds of BUY-BUY. And most of the time during fluctuated sideways it will do either BUY-SELL or SELL-BUY rounds.</li>
+    </p>
+  </div>
+</div>
+
 
   <footer class="text-center text-sm text-zinc-500 py-8 px-4">
     &copy; 2025 ShitBot Labs. Built with caffeine, chaos, and Tailwind.
   </footer>
+  
+  <script>
+	  function showTab(tabId) {
+		document.querySelectorAll('.tab-content').forEach(div => {
+		  div.classList.add('hidden');
+		});
+		document.querySelectorAll('.tab-button').forEach(btn => {
+		  btn.classList.remove('text-cyan-400', 'border-b-2', 'border-cyan-400', 'active-tab');
+		  btn.classList.add('text-zinc-400');
+		});
+		document.getElementById(tabId).classList.remove('hidden');
+		event.target.classList.add('text-cyan-400', 'border-b-2', 'border-cyan-400', 'active-tab');
+		event.target.classList.remove('text-zinc-400');
+	  }
+	</script>
+
+  
 </body>
 </html>
