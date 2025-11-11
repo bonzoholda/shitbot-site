@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DEXtrader</title>
+  <title>DEXtrader V5</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@100;200;300;400&display=swap" rel="stylesheet">
@@ -45,7 +45,7 @@
         </ul>
         <div class="mt-6 flex flex-col sm:flex-row justify-center md:justify-start gap-4">
           <a href="https://t.me/ShitBot_reborn/12417" class="bg-cyan-500 hover:bg-cyan-600 text-black font-semibold py-3 px-6 rounded-xl text-lg shadow-lg transition">Join Telegram</a>
-          <a href="https://dexbotv5.up.railway.app/" class="bg-transparent border border-cyan-400 hover:bg-cyan-600 hover:text-black text-cyan-300 font-semibold py-3 px-6 rounded-xl text-lg transition">Deploy Now</a>
+          <a href="https://dexbotv5.up.railway.app/" class="bg-transparent border border-cyan-400 hover:bg-cyan-600 hover:text-black text-cyan-300 font-semibold py-3 px-6 rounded-xl text-lg transition">Start the Bot</a>
         </div>
       </div>
       <div class="flex-1 w-full max-w-md">
@@ -59,10 +59,10 @@
     <div class="max-w-4xl mx-auto py-8 px-4">
       <h2 class="text-3xl font-light text-cyan-300 mb-4">What does the bot really do?</h2>
       <ul class="text-zinc-300 font-light leading-relaxed list-disc list-inside space-y-2">
-        <li>ShitBot DEXtrader uses a hybrid trailing grid system with dynamic allocation based on portfolio value. It adapts to trends by trailing up in bullish phases and buying dips aggressively when bearish sentiment is detected.</li>
-        <li>The core engine of this bot is actually the combination of volume management and DCA backup. The bot calculates portfolio value each time, then uses 16% of the portfolio to manage 3 sets or 3 rounds of trades. Each round of the trade can be combination of BUY-SELL (Long and TP), SELL-BUY (Short and TP), BUY-BUY (Long and SL), SELL-SELL (Short and SL).</li>
-        <li>Every time the bot completes 1 round, it will scan the market to find a new signal. Whenever the new signal comes, the bot will start a new round.</li>
-        <li>This strategy works for almost every situation in the market. During extreme market pumps, the bot can have 3 rounds of SELL-SELL. And the opposite, during extreme market dumps the bot can do 3 rounds of BUY-BUY. And most of the time during fluctuated sideways it will do either BUY-SELL or SELL-BUY rounds.</li>
+        <li>ShitBot DEXtrader V5 uses a hybrid trailing grid system with dynamic allocation based on portfolio value.</li>
+        <li>You can choose either DCA-grid strategy, or Asset-balancer.</li>
+        <li>DCA-grid will focus on holding USDT, split the allocation for 4-grid orders. Ratio of lots:DCA distance is 1,1,2,3 : 0,-3%,-7%,-15%. TP trailing will be triggered at +0.9% with 0.2% callback rates to lock the profit. It uses AI-module to get the BUY signal for opening new position.</li>
+        <li>Asset-balancer strategy is straightforwad, will focus to hold USDT and WMATIC at 50:50 ratio. Any value changes of 5% on each side will trigger either buy more WMATIC or sell it to USDT.</li>
       </ul>
     </div>
   </div>
