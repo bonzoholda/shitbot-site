@@ -33,7 +33,7 @@
         <ul class="text-zinc-300 font-light space-y-2 list-disc list-inside text-left mx-auto md:mx-0 max-w-sm">
           <li>Trade directly inside your wallet and grow your portfolio in an automatic and decentralized way.</li>
           <li>Cloud hosted, running 24/7.</li>
-          <li>Choose the strategy: DCA-grid or Asset-balancer.</li>
+          <li>Choose one of the provided strategies.</li>
           <li>Easy to start and monitor your portfolio.</li>
         </ul>
         <h2 class="text-2xl sm:text-3xl font-light text-cyan-300">How to start?</h2>
@@ -59,10 +59,12 @@
     <div class="max-w-4xl mx-auto py-8 px-4">
       <h2 class="text-3xl font-light text-cyan-300 mb-4">What does the bot really do?</h2>
       <ul class="text-zinc-300 font-light leading-relaxed list-disc list-inside space-y-2">
-        <li>ShitBot DEXtrader V5 uses a hybrid trailing grid system with dynamic allocation based on portfolio value.</li>
-        <li>You can choose either DCA-grid strategy, or Asset-balancer.</li>
-        <li>DCA-grid will focus on holding USDT, split the allocation for 4-grid orders. Ratio of lots:DCA distance is 1,1,2,3 : 0,-3%,-7%,-15%. TP trailing will be triggered at +0.9% with 0.2% callback rates to lock the profit. It uses AI-module to get the BUY signal for opening new position.</li>
-        <li>Asset-balancer strategy is straightforwad, will focus to hold USDT and WMATIC at 50:50 ratio. Any value changes of 5% on each side will trigger either buy more WMATIC or sell it to USDT.</li>
+        <li>ShitBot DEXtrader V5 uses a unique approach to automate your trades.</li>
+        <li>You can choose one of the provided strategies: DCA-grid, Asset-balancer, UniswapV3 LP, or Signal based - Long/Short.</li>
+        <li>DCA-grid: will focus on holding USDT, split the allocation for 4-grid orders. Ratio of [lots]:[DCA'ed drawdown] is [1,1,2,3] : [0,-3%,-9%,-27%]. TP trailing will be triggered at +0.9% with 0.2% callback rates to lock the profit. It uses AI-module to get the BUY signal for opening new position.</li>
+        <li>Asset-balancer: the strategy is straightforwad, will focus to hold USDT and WMATIC at 50:50 ratio. Any value changes of 5% on each side will trigger either buy more WMATIC or sell it to USDT.</li>
+        <li>UniswaV3 LP: the bot will mint USDT/WMATIC LP on Uniswap V3 with balanced-ratio at 10% range above&below entry price. You earn fees while price stays inside the range. The bot will re-balance LP if price goes outside the range.</li>
+        <li>Signal based - Long/Short: will open position Long/Short based on signal and ratio of portfolio. If USDT balance is bigger than WMATIC, it will focus on Long position. If value of WMATIC balance is bigger, it will focus on Short position. The signal is produced by enhanced AI_module. TP/SL is also based on the first opposite signal that pops up when there's an open position </li>
       </ul>
     </div>
   </div>
